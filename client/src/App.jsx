@@ -12,6 +12,7 @@ import Geography from "./pages/Geography";
 import Layout from "./pages/Layout";
 import Monthly from "./pages/Monthly";
 import Overview from "./pages/Overview";
+import Performance from "./pages/Performance";
 import Products from "./pages/Products";
 import Transactions from "./pages/Transactions";
 import { themeSettings } from "./theme";
@@ -42,6 +43,7 @@ function App() {
               <Route path="/monthly" element={<Monthly />} />
               <Route path="/breakdown" element={<BreakDown />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/performance" element={<Performance />} />
             </Route>
           </Routes>
         </ThemeProvider>
