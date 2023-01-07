@@ -4,7 +4,14 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5001" }),
   reducerPath: "adminApi",
 
-  tagTypes: ["User", "Products", "Customers"],
+  tagTypes: [
+    "User",
+    "Products",
+    "Customers",
+    "Transactions",
+    "Geography",
+    "Sales",
+  ],
 
   endpoints: (build) => ({
     getUser: build.query({
@@ -22,10 +29,40 @@ export const api = createApi({
 
       providesTags: ["Customers"],
     }),
+    getTransactions: build.query({
+      query: ({ page, pageSize, sort, search }) => ({
+        url: `client/transactions`,
+        method: "GET",
+        params: {
+          page,
+          pageSize,
+          sort,
+          search,
+        },
+      }),
+
+      providesTags: ["Transactions"],
+    }),
+    getGeography: build.query({
+      query: () => `client/geography`,
+
+      providesTags: ["Geography"],
+    }),
+
+    getSales: build.query({
+      query: () => `sales/sales`,
+      providesTags: ["Sales"],
+    }),
   }),
 });
 
 // useGetUserQuery comes from above name of getUser which has use at beginning and query at end
 
-export const { useGetUserQuery, useGetProductsQuery, useGetCustomersQuery } =
-  api;
+export const {
+  useGetUserQuery,
+  useGetProductsQuery,
+  useGetCustomersQuery,
+  useGetTransactionsQuery,
+  useGetGeographyQuery,
+  useGetSalesQuery,
+} = api;

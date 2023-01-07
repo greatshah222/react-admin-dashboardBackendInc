@@ -14,9 +14,17 @@ import generalRoutes from "./routes/generalRoutes.js";
 
 // for importing mock data
 import User from "./models/User.js";
-import { dataUser, dataProduct, dataProductStat } from "./data/index.js";
+import {
+  dataUser,
+  dataProduct,
+  dataProductStat,
+  dataTransaction,
+  dataOverallStat,
+} from "./data/index.js";
 import Product from "./models/Product.js";
 import ProductStat from "./models/ProductStat.js";
+import Transaction from "./models/Transaction.js";
+import OverallStat from "./models/OverallStat.js";
 
 // configuratioon
 dotenv.config();
@@ -69,6 +77,10 @@ mongoose
     // User.insertMany(dataUser);
     // Product.insertMany(dataProduct);
     // ProductStat.insertMany(dataProductStat);
+
+    // Transaction.insertMany(dataTransaction);
+
+    // OverallStat.insertMany(dataOverallStat);
   })
   .catch((err) => {
     console.log(err, "error");
